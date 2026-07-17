@@ -19,6 +19,3 @@ BEGIN
 
     DROP TABLE #FutureTables;
 END
-GO
-
-EXEC dbo.sp_FutureReservationTables;

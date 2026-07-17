@@ -18,8 +18,3 @@ SELECT res.ReservationId,
 FROM Reservations AS res
 JOIN Restaurants AS r ON res.RestaurantId = r.RestaurantId
 JOIN Customers AS c ON res.CustomerId   = c.CustomerId;
-GO
-
-SELECT *
-FROM ReservationsReport
-ORDER BY RestaurantId, ReservationId;

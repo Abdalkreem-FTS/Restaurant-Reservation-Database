@@ -26,7 +26,3 @@ BEGIN
 
     SELECT CAST(SCOPE_IDENTITY() AS INT) AS NewOrderId;
 END
-GO
-
-EXEC dbo.sp_AddNewOrder @ReservationId = 1, @EmployeeId = 1, @OrderDate = '2026-07-15', @TotalAmount = 42.50;
-EXEC dbo.sp_AddNewOrder @ReservationId = 999999, @EmployeeId = 1, @OrderDate = '2026-07-15', @TotalAmount = 42.50;
