@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/tests/">
+    <Project Path="RestaurantDb.IntegrationTests/RestaurantDb.IntegrationTests.csproj" />
+  </Folder>
+</Solution>
