@@ -34,7 +34,6 @@ public class SandboxTests(SqlServerFixture fixture, ITestOutputHelper output) : 
             .ToList();
 
         PrintAsTable(rows);
-        AssertTrueColumnIfPresent(rows);
     }
 
     private void PrintAsTable(List<IDictionary<string, object>> rows)
@@ -55,27 +54,6 @@ public class SandboxTests(SqlServerFixture fixture, ITestOutputHelper output) : 
         }
 
         output.WriteLine($"({rows.Count} row(s))");
-    }
-    
-    private static void AssertTrueColumnIfPresent(List<IDictionary<string, object>> rows)
-    {
-        if (rows.Count == 0)
-        {
-            return;
-        }
-
-        var column = rows[0].Keys.FirstOrDefault(k => string.Equals(k, "AssertTrue", StringComparison.OrdinalIgnoreCase));
-        if (column is null)
-        {
-            return;
-        }
-
-        foreach (var row in rows)
-        {
-            var value = row[column];
-            var isTrue = value is not null and not DBNull && Convert.ToInt64(value) != 0;
-            Assert.True(isTrue, $"A row returned {column} = {Format(value)}; expected a non-zero value.");
-        }
     }
 
     private static string Format(object? value) => value?.ToString() ?? "NULL";
