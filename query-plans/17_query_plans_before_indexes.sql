@@ -1,0 +1,3 @@
+-- 17_query_plans_before_indexes.sql
+-- Query plans BEFORE indexing.
+-- Selected queries (by requirement no.): 3, 5, 8, 9, 10 -> queries/03,05,08,09,10.
