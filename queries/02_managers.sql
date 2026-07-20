@@ -3,4 +3,4 @@
 SELECT EmployeeId, RestaurantId, FirstName, LastName, Position
 FROM Employees
 WHERE Position = 'Manager'
-ORDER BY RestaurantId, EmployeeId;
+ORDER BY RestaurantId, LastName, FirstName;
