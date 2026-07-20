@@ -1,4 +1,5 @@
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using Testcontainers.MsSql;
 
 namespace RestaurantDb.IntegrationTests.Infrastructure;
@@ -12,7 +13,15 @@ public sealed class SqlServerFixture : IAsyncLifetime
 {
     private const string DatabaseName = "RestaurantReservationDB";
 
-    private readonly MsSqlContainer _container = new MsSqlBuilder("mcr.microsoft.com/mssql/server:2022-latest").Build();
+    private static readonly IConfiguration Configuration = new ConfigurationBuilder()
+        .SetBasePath(AppContext.BaseDirectory)
+        .AddJsonFile("appsettings.json", optional: false)
+        .Build();
+
+    private readonly MsSqlContainer _container = new MsSqlBuilder(
+            Configuration["SqlServer:Image"] ??
+            throw new InvalidOperationException("Missing 'SqlServer:Image' in appsettings.json."))
+        .Build();
 
     public string ConnectionString { get; private set; } = string.Empty;
 
