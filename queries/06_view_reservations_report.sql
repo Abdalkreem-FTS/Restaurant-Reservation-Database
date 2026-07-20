@@ -20,6 +20,11 @@ JOIN Restaurants AS r ON res.RestaurantId = r.RestaurantId
 JOIN Customers AS c ON res.CustomerId   = c.CustomerId;
 GO
 
-SELECT *
+SELECT ReservationId,
+       ReservationDate,
+       PartySize,
+       RestaurantName,
+       CustomerFirstName,
+       CustomerLastName
 FROM ReservationsReport
-ORDER BY RestaurantId, ReservationId;
+ORDER BY ReservationDate DESC;
