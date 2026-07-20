@@ -5,4 +5,4 @@
 SELECT r.ReservationId, r.RestaurantId, r.TableId, r.ReservationDate, r.PartySize
 FROM Reservations AS r
 WHERE r.CustomerId = @CustomerId
-ORDER BY r.ReservationDate;
+ORDER BY r.ReservationDate DESC;
