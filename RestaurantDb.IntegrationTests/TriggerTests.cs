@@ -4,7 +4,7 @@ using RestaurantDb.IntegrationTests.Infrastructure;
 
 namespace RestaurantDb.IntegrationTests;
 
-[Collection(DatabaseCollection.Name)]
+[Collection(DatabaseCollection.SqlServerCollectionName)]
 public class TriggerTests(SqlServerFixture fixture) : TransactionalTest(fixture)
 {
     private const string InsertReservation = """

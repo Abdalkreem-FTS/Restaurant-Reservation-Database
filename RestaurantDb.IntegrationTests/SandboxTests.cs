@@ -14,7 +14,7 @@ namespace RestaurantDb.IntegrationTests;
 /// so a half-written scratch query can never break the real build.
 /// </summary>
 [Trait("Category", "Sandbox")]
-[Collection(DatabaseCollection.Name)]
+[Collection(DatabaseCollection.SqlServerCollectionName)]
 public class SandboxTests(SqlServerFixture fixture, ITestOutputHelper output) : TransactionalTest(fixture)
 {
     [Fact]

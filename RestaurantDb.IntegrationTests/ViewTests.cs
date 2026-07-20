@@ -2,7 +2,7 @@ using RestaurantDb.IntegrationTests.Infrastructure;
 
 namespace RestaurantDb.IntegrationTests;
 
-[Collection(DatabaseCollection.Name)]
+[Collection(DatabaseCollection.SqlServerCollectionName)]
 public class ViewTests(SqlServerFixture fixture)
 {
     private async Task<IReadOnlyList<string>> ColumnsOf(string view) =>

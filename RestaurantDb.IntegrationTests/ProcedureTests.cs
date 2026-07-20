@@ -4,7 +4,7 @@ using RestaurantDb.IntegrationTests.Infrastructure;
 
 namespace RestaurantDb.IntegrationTests;
 
-[Collection(DatabaseCollection.Name)]
+[Collection(DatabaseCollection.SqlServerCollectionName)]
 public class ReportProcedureTests(SqlServerFixture fixture)
 {
     private const string Report = "EXEC dbo.sp_ReservedTablesReport @StartDate = @start, @EndDate = @end;";
@@ -79,7 +79,7 @@ public class ReportProcedureTests(SqlServerFixture fixture)
     }
 }
 
-[Collection(DatabaseCollection.Name)]
+[Collection(DatabaseCollection.SqlServerCollectionName)]
 public class AddNewOrderTests(SqlServerFixture fixture) : TransactionalTest(fixture)
 {
     private const string AddOrder =
