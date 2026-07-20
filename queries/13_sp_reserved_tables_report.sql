@@ -15,6 +15,3 @@ BEGIN
     WHERE res.ReservationDate BETWEEN @StartDate AND @EndDate
     ORDER BY res.ReservationDate, rt.RestaurantId, t.TableId;
 END
-GO
-
-EXEC dbo.sp_ReservedTablesReport @StartDate = '2026-01-01', @EndDate = '2026-03-31';

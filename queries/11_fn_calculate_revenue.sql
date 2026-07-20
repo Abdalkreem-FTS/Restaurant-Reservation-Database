@@ -12,8 +12,3 @@ BEGIN
 
     RETURN ISNULL(@Result, 0);
 END
-GO
-
-SELECT 1 AS RestaurantId, dbo.fn_CalculateRevenue(1) AS TotalRevenue
-UNION ALL
-SELECT 2, dbo.fn_CalculateRevenue(2);

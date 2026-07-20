@@ -1,0 +1,23 @@
+# Local development databases. NOT used by the integration tests (those spin up their own throwaway SQL Server via Testcontainers).
+# This stack is for manual use and connecting to DataGrip for example.
+#
+#   docker compose up -d        # start all
+#   docker compose ps           # see status + published ports
+#   docker compose down         # stop (keeps data volumes)
+#   docker compose down -v      # stop and wipe data
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: dev-mssql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Str0ng!Passw0rd"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql-data:/var/opt/mssql
+    restart: unless-stopped
+
+volumes:
+  mssql-data:

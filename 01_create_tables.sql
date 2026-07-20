@@ -69,3 +69,14 @@ CREATE TABLE OrderItems (
     CONSTRAINT FK_OrderItems_Order FOREIGN KEY (OrderId) REFERENCES Orders(OrderId),
     CONSTRAINT FK_OrderItems_MenuItem FOREIGN KEY (ItemId) REFERENCES MenuItems(ItemId)
 );
+
+-- Written to by the trigger in queries/16_trg_audit_reservation.sql. Kept here so that
+-- file contains only the trigger. Intentionally has no foreign keys: an audit row must
+-- survive even if the reservation it describes is later removed.
+CREATE TABLE AuditLog (
+    AuditId INT IDENTITY(1,1) PRIMARY KEY,
+    RestaurantId INT,
+    TableId INT,
+    ReservationDate DATETIME,
+    ChangeDate DATETIME NOT NULL DEFAULT GETDATE()
+);

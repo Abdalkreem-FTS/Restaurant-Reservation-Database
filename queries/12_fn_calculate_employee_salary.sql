@@ -21,9 +21,3 @@ BEGIN
 
     RETURN ISNULL(@OrdersCount, 0) * ISNULL(@Rank, 0);
 END
-GO
-
-SELECT e.EmployeeId, e.Position, dbo.fn_CalculateEmployeeSalary(e.EmployeeId) AS Salary
-FROM Employees AS e
-WHERE e.EmployeeId IN (1, 50, 60, 100)
-ORDER BY e.EmployeeId;

@@ -35,11 +35,3 @@ DROP INDEX IF EXISTS IX_Tables_RestaurantId    ON [Tables];
 CREATE NONCLUSTERED INDEX IX_MenuItems_RestaurantId ON MenuItems(RestaurantId);
 CREATE NONCLUSTERED INDEX IX_Employees_RestaurantId ON Employees(RestaurantId);
 CREATE NONCLUSTERED INDEX IX_Tables_RestaurantId ON [Tables](RestaurantId);
-GO
-
-
-SELECT OBJECT_NAME(i.object_id) AS TableName, i.name AS IndexName, i.type_desc
-FROM sys.indexes AS i
-WHERE i.name LIKE 'IX_%'
-ORDER BY TableName, IndexName;
-GO

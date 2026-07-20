@@ -13,8 +13,3 @@ SELECT e.EmployeeId,
        r.OpeningHours
 FROM Employees AS e
 JOIN Restaurants AS r ON e.RestaurantId = r.RestaurantId;
-GO
-
-SELECT *
-FROM EmployeesDetails
-ORDER BY RestaurantId, EmployeeId;

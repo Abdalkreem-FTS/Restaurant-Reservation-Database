@@ -1,6 +1,6 @@
 -- Requirement 4: Distinct menu items ordered by a given reservation.
-
-DECLARE @ReservationId INT = 7;
+-- @ReservationId is supplied by the caller. To run this file on its own, prepend:
+--     DECLARE @ReservationId INT = 7;
 
 SELECT DISTINCT MI.ItemId, MI.RestaurantId, MI.[Name], MI.[Description], MI.Price
 FROM Orders AS O

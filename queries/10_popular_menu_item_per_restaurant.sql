@@ -1,6 +1,6 @@
 -- Requirement 10: Most popular menu item for each restaurant in a given month.
-
-DECLARE @Year INT = 2025, @Month INT = 11;
+-- @Year and @Month are supplied by the caller. To run this file on its own, prepend:
+--     DECLARE @Year INT = 2025, @Month INT = 11;
 
 WITH ItemPopularity AS (
     SELECT r.RestaurantId, oi.ItemId, SUM(oi.Quantity) AS UnitsSold,
